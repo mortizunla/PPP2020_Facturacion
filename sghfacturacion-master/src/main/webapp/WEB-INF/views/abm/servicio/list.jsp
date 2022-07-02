@@ -10,7 +10,7 @@ request.setAttribute("success", request.getParameter("success"));
 <%@include file="../../header.jsp"%>
 <div class="block-header">
 	<h2>
-		TIPOS DE SERVICIOS <small>Lista de tipos de servicios</a></small>
+		SERVICIOS <small>Lista de servicios</a></small>
 	</h2>
 </div>
 
