@@ -11,7 +11,7 @@
 	<property column="precioExtraPorNoche" name="precioExtraPorNoche" type="big_decimal"/>
 
 
-	<set name="lstServicio" table="aux_serviciosPorPlan" inverse="false" cascade="all" lazy="false" >
+	<set name="lstServicio" table="aux_serviciosporplan" inverse="false" cascade="all" lazy="false" >
 		<key>
 			 <column name="idPlanAlojamiento"  />
 		</key>

@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
+<%
+    request.setAttribute("success", request.getParameter("success"));
+	request.setAttribute("titulo", "Usuarios");
+%>
 
 <%@include file="header.jsp"%>
 <div class="block-header">
@@ -9,6 +13,14 @@
 		USUARIOS<small>Lista de usuarios</a></small>
 	</h2>
 </div>
+<c:choose>
+	<c:when test="${success != null}">
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span></button>
+		    ${success}
+		</div>
+	</c:when>
+</c:choose>
 <div class="row clearfix">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="card">
