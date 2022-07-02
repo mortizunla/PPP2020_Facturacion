@@ -18,8 +18,8 @@
 <c:choose>
 	<c:when test="${nroComprobante != null}">
 		<div class="alert alert-success alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-		    <strong>Comprobante Emitido!</strong> El comprobante Nro ${nroComprobante} se ha emitido y gurdado correctamente.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">ï¿½</span></button>
+		    <strong>Comprobante Emitido!</strong> El comprobante Nro ${nroComprobante} se ha emitido y guardado correctamente.
 		</div>
 	</c:when>
 </c:choose>
