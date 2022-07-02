@@ -14,6 +14,14 @@ request.setAttribute("success", request.getParameter("success"));
 		CARACTERISTICA DE PASAJEROS <small>Lista de caracter&iacute;stica de pasajeros</a></small>
 	</h2>
 </div>
+<c:choose>
+	<c:when test="${success != null}">
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+		    ${success}
+		</div>
+	</c:when>
+</c:choose>
 <!-- Basic Examples -->
 <div class="row clearfix">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
