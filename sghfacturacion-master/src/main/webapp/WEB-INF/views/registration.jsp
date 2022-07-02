@@ -65,7 +65,7 @@
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="password">Contraseï¿½a</label>
+					<label class="col-md-3 control-lable" for="password">Contraseña</label>
 					<div class="col-md-7">
 						<form:input type="password" path="password" id="password" class="form-control input-sm" />
 						<div class="has-error">
@@ -105,7 +105,7 @@
 					<c:choose>
 						<c:when test="${edit}">
 							<input type="submit" value="Actualizar"
-								class="btn btn-primary btn-sm" /> o <a
+								class="btn btn-primary btn-sm" /> or <a
 								href="<c:url value='/usuarios' />">Cancelar</a>
 						</c:when>
 						<c:otherwise>
