@@ -15,7 +15,7 @@
 			<div class="header">
                 <sec:authorize access="hasRole('ADMIN')">
 					<a href="<c:url value='/newuser' />"
-						class="btn btn-primary waves-effect">Agregar Usuario</a>
+						class="btn btn-primary waves-effect">Crear Usuario</a>
 				</sec:authorize>
             </div>
             <div class="body table-responsive">
