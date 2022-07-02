@@ -11,7 +11,7 @@ request.setAttribute("success", request.getParameter("success"));
 
 <div class="block-header">
 	<h2>
-		CARACTERISTICA DE PASAJEROS <small>Lista de caracteristica de pasajeros</a></small>
+		CARACTERISTICA DE PASAJEROS <small>Lista de caracter&iacute;stica de pasajeros</a></small>
 	</h2>
 </div>
 <!-- Basic Examples -->
@@ -21,7 +21,7 @@ request.setAttribute("success", request.getParameter("success"));
 			<div class="header">
                 <sec:authorize access="hasRole('ADMIN')">
 					<a href="<c:url value='new' />"
-						class="btn btn-primary waves-effect">Crear Caracteristicas</a>
+						class="btn btn-primary waves-effect">Crear Caracter&iacute;stica</a>
 				</sec:authorize>
             </div>
 			<div class="body table-responsive">
@@ -34,7 +34,7 @@ request.setAttribute("success", request.getParameter("success"));
                             ********************* COMIENZO DE LOS CAMPOS DE LA ENTIDAD ********************* *
                             ******************************************************************************** */
                             %>
-                            <th>Descripcion</th>
+                            <th>Descripci&oacute;n</th>
                             <th class="noExport">Acciones</th>
                         </tr>
                     </thead>

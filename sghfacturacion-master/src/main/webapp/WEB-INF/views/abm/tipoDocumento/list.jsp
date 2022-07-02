@@ -32,8 +32,8 @@ request.setAttribute("success", request.getParameter("success"));
                               ********************* COMIENZO DE LOS CAMPOS DE LA ENTIDAD ********************* *
                               ******************************************************************************** */
                         %>
-                        <th>Descripcion</th>
-                        <th>Codigo Afip</th>
+                        <th>Descripci&oacute;n</th>
+                        <th>C&oacute;digo Afip</th>
                         <th class="noExport">Acciones</th>
                         </tr>
                     </thead>

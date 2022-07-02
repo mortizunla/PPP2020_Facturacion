@@ -36,10 +36,10 @@ request.setAttribute("success", request.getParameter("success"));
 								  ******************************************************************************** */
 							%>
 						    <th>Nombre</th>
-                            <th>Direccion</th>
-                            <th>Telefono</th>
+                            <th>Direcci&oacute;n</th>
+                            <th>Tel&eacute;fono</th>
                             <th>Email</th>
-                            <th>Pagina Web</th>
+                            <th>P&aacute;gina Web</th>
                             <th class="noExport">Acciones</th>
                         </tr>
                     </thead>
