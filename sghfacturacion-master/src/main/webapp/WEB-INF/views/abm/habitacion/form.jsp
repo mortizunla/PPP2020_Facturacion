@@ -33,7 +33,7 @@
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="descripcion">Descripción</label>
+					<label class="col-md-3 control-lable" for="descripcion">DescripciÃ³n</label>
 					<div class="col-md-7">
 						<form:input type="text" path="descripcion" id="descripcion" class="form-control input-sm"/>
 						<div class="has-error">

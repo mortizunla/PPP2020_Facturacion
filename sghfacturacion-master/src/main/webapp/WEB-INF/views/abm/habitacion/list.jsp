@@ -3,6 +3,8 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <%
+request.setAttribute("titulo", "Sistema de Gestion Hotelera");
+
 request.setAttribute("success", request.getParameter("success"));
 %>
 
@@ -12,6 +14,14 @@ request.setAttribute("success", request.getParameter("success"));
 		HABITACIONES <small>Lista de habitaciones</a></small>
 	</h2>
 </div>
+<c:choose>
+	<c:when test="${success != null}">
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+		    ${success}
+		</div>
+	</c:when>
+</c:choose>
 
 <!-- Basic Examples -->
 <div class="row clearfix">
