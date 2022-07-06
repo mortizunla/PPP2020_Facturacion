@@ -29,8 +29,7 @@
 								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 									<div class="form-group">
 										<div class="form-line">
-											<form:input type="number" path="codigo"
-												id="codigo" class="form-control" />
+											<form:input type="number" path="codigo" id="codigo" class="form-control" />
 											<div class="has-error">
 												<form:errors path="codigo" class="help-inline" />
 											</div>
@@ -44,8 +43,7 @@
 								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 									<div class="form-group">
 										<div class="form-line">
-											<form:input type="text" path="descripcion"
-												id="descripcion" class="form-control" />
+											<form:input type="text" path="descripcion" id="descripcion" class="form-control" />
 											<div class="has-error">
 												<form:errors path="descripcion" class="help-inline" />
 											</div>

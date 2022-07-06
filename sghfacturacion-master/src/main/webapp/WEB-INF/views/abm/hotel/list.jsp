@@ -4,6 +4,8 @@
 
 
 <%
+request.setAttribute("titulo", "Sistema de Gestion Hotelera");
+
 request.setAttribute("success", request.getParameter("success"));
 %>
 
@@ -13,6 +15,14 @@ request.setAttribute("success", request.getParameter("success"));
 		HOTELES <small>Lista de hoteles</a></small>
 	</h2>
 </div>
+<c:choose>
+	<c:when test="${success != null}">
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+		    ${success}
+		</div>
+	</c:when>
+</c:choose>
 
 <!-- Basic Examples -->
 <div class="row clearfix">
