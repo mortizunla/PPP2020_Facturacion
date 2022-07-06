@@ -4,6 +4,8 @@
 
 <%
 request.setAttribute("success", request.getParameter("success"));
+request.setAttribute("titulo", "Sistema de Gestion Hotelera");
+
 %>
 
 <%@include file="../../header.jsp"%>
@@ -12,6 +14,14 @@ request.setAttribute("success", request.getParameter("success"));
 		ESTADO DE HABITACIONES <small>Lista de estados de habitaciones</a></small>
 	</h2>
 </div>
+<c:choose>
+	<c:when test="${success != null}">
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+		    ${success}
+		</div>
+	</c:when>
+</c:choose>
 
 <!-- Basic Examples -->
 <div class="row clearfix">
