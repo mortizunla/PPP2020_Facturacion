@@ -1,4 +1,3 @@
-
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -25,6 +24,7 @@
 						</div>
 						<div class="body">
 							<div class="row clearfix">
+
 								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 									<label for="">Descripci&oacute;n</label>
 								</div>
@@ -45,8 +45,7 @@
 								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 									<div class="form-group">
 										<div class="form-line">
-											<form:select path="hotel" items="${hotel}" multiple="false" itemValue="idHotel" itemLabel="nombreHotel"
-                                            				class="form-control input-sm" />
+											<form:select path="hotel" items="${hotel}" multiple="false" itemValue="idHotel" itemLabel="nombreHotel" class="form-control input-sm" />
 											<div class="has-error">
 												<form:errors path="hotel" class="help-inline" />
 											</div>
@@ -60,8 +59,7 @@
 								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 									<div class="form-group">
 										<div class="form-line">
-											<form:select path="estadoHabitacion" items="${estadoHabitacion}" multiple="false" itemValue="idEstadoHabitacion"
-                                             						itemLabel="descripcion" class="form-control input-sm" />
+											<form:select path="estadoHabitacion" items="${estadoHabitacion}" multiple="false" itemValue="idEstadoHabitacion" itemLabel="descripcion" class="form-control input-sm" />
 											<div class="has-error">
 												<form:errors path="estadoHabitacion" class="help-inline" />
 											</div>
@@ -71,23 +69,21 @@
 
 
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <label for="">Tipo Habitacion</label>
+                                        <label for="">Tipo Habitaci&oacute;n</label>
                                 </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <form:select path="tipoHabitacion" items="${tipoHabitacion}" multiple="false" itemValue="idTipoHabitacion"
-                                                        itemLabel="toString" class="form-control input-sm" />
-                                                <div class="has-error">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <form:select path="tipoHabitacion" items="${tipoHabitacion}" multiple="false" itemValue="idTipoHabitacion" itemLabel="toString" class="form-control input-sm" />
+                                             <div class="has-error">
                                                         <form:errors path="tipoHabitacion" class="help-inline" />
-                                                </div>
-                                            </div>
+                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
 							    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<label for="">Caracteristicas</label>
+									<label for="">Caracterist&iacute;cas</label>
 								</div>
 								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 									<div class="form-group">
