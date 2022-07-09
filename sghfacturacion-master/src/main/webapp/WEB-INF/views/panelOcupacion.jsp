@@ -2,8 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%
 response.setHeader("Cache-Control","no-cache"); //HTTP 1.1
 response.setHeader("Pragma","no-cache"); //HTTP 1.0
@@ -109,7 +108,7 @@ response.setDateHeader ("Expires", 0);
 						"sProcessing" : "Procesando...",
 						"sLengthMenu" : "Mostrar _MENU_ registros",
 						"sZeroRecords" : "No se encontraron resultados",
-						"sEmptyTable" : "Ningún dato disponible en esta tabla",
+						"sEmptyTable" : "Ningï¿½n dato disponible en esta tabla",
 						"sInfo" : "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
 						"sInfoEmpty" : "Mostrando un total de 0 habitaciones",
 						"sInfoFiltered" : "(filtrado de un total de _MAX_ registros)",
@@ -120,7 +119,7 @@ response.setDateHeader ("Expires", 0);
 						"sLoadingRecords" : "Cargando...",
 						"oPaginate" : {
 							"sFirst" : "Primero",
-							"sLast" : "Último",
+							"sLast" : "ï¿½ltimo",
 							"sNext" : "Siguiente",
 							"sPrevious" : "Anterior"
 						}
