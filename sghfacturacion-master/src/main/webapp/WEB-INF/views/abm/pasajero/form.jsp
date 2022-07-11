@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-	request.setAttribute("titulo", "Formulario de Carga de Pasajero);
+	request.setAttribute("titulo", "Formulario de Carga de Pasajero");
 %>
 <%@include file="../../header.jsp"%>
 

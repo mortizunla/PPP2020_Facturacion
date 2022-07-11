@@ -46,6 +46,8 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
 								  ******************************************************************************** */
 							%>
 							<th>Descripci&oacute;n</th>
+							<th>Plata</th>
+							<th>Tipo</th>
 							<th class="noExport">Acciones</th>
 						</tr>
 					</thead>
@@ -59,6 +61,8 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
 											  ******************************************************************************** */
 								%>
 								<td>${entity.descripcion}</td>
+								<td>${entity.precio}</td>
+						        <td>${entity.tipoServicio.descripcion}</td>
 
 
 								<%
