@@ -77,6 +77,11 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
 											  ******************************************************************************** */
 								%>
 								<td>
+								<sec:authorize access="hasAnyRole('ADMIN', 'USER','DBA')">
+							      <button type="button" onclick="javascript:location.href='<c:url value='/pasajeroEstadia/list?idEstadia=${entity.id}' />'" class="btn bg-green btn-circle waves-effect waves-circle waves-float">
+                                  		 <i class="material-icons">hotel</i>
+                                  </button>
+						        </sec:authorize>
 								<sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
 									<button type="button" onclick="javascript:location.href='<c:url value='edit-${entity.id}' />'" class="btn btn-default btn-circle waves-effect waves-circle waves-float">
 									    <i class="material-icons">mode_edit</i>

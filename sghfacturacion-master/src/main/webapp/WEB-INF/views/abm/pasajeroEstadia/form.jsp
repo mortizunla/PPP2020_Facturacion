@@ -1,20 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html>
+<%
+	request.setAttribute("titulo", "Asignar Habitacion/Pasajero a Estadia");
+%>
+<%@include file="../../header.jsp"%>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Asignar Habitacion/Pasajero a Estadia</title>
-<link href="<c:url value='/static/css/bootstrap.css' />"
-	rel="stylesheet"></link>
-<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-
-<script src=" <c:url value= '/static/js/jquery-1.12.4.js'/>" type="text/javascript"></script>
-
 <script type="text/javascript">
      $(document).ready(function(){
     	 var dato = <%= request.getParameter("idEstadia") %>;
@@ -25,97 +18,140 @@
 
     	 }
 
-    	 $("#Actualizar").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
-    	 $("#Guardar").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
+    	 $("#EDITAR").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
+    	 $("#CREAR").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
 
      });
 </script>
-
 </head>
 
-<body>
-	<div class="generic-container">
-		<%@include file="../../authheader.jsp"%>
-
-		<div class="well lead">Asignar Habitacion/Pasajero a Estadia</div>
-		<form:form method="POST" modelAttribute="entity"
-			class="form-horizontal">
+<form:form method="POST" modelAttribute="entity" class="">
 			<%
 				/* ******************************************************************************** *
-						  ********************* COMIENZO DE LOS CAMPOS DE LA ENTIDAD ********************* *
-						  ******************************************************************************** */
+												  ********************* COMIENZO DE LOS CAMPOS DE LA ENTIDAD ********************* *
+												  ******************************************************************************** */
 			%>
 			<form:input type="hidden" path="idPasajeroEstadia" id="id" />
 
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for=estadia>Estadia</label>
-					<div class="col-md-7">
-						<form:select path="estadia" items="${estadia}" id="estadia"
-							multiple="false" itemValue="idEstadia"
-							itemLabel="descripcion" class="form-control input-sm"/>
-						<div class="has-error">
-							<form:errors path="estadia" class="help-inline" />
+			<div class="row clearfix">
+				<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+					<div class="card">
+						<div class="header bg-blue">
+							<h2>ASIGNAR HABITACION/PASAJERO A ESTADIA</h2>
+						</div>
+						<div class="body">
+							<div class="row clearfix">
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+									<label for="">Estad&iacute;a</label>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+									<div class="form-group">
+										<div class="form-line">
+											<c:choose>
+                                                <c:when test="${not empty param.idEstadia}">
+
+                                                    <c:forEach items="${estadia}" var="miEstadia">
+                                                        <c:if test="${miEstadia.idEstadia == param.idEstadia}">
+                                                            <c:out value="${miEstadia.descripcion}"/>
+                                                            <form:input type="hidden" path="estadia" value="${miEstadia.idEstadia}" />
+                                                        </c:if>
+                                                    </c:forEach>
+
+                                                </c:when>
+                                                <c:otherwise>
+
+                                                        <form:select path="estadia" items="${estadia}" id="estadia"
+                                                        multiple="false" itemValue="idEstadia"
+                                                        itemLabel="descripcion" class="form-control input-sm"/>
+
+                                                </c:otherwise>
+                                            </c:choose>
+											<div class="has-error">
+												<form:errors path="estadia" class="help-inline" />
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+									<label for="">Pasajero</label>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+									<div class="form-group">
+										<div class="form-line">
+											<form:select path="pasajero"
+                                                multiple="false" class="form-control input-sm" >
+                                                <form:option  value="" />
+                                                <form:options items="${pasajero}" itemValue="idContacto"
+                                                itemLabel="nombreCompleto" />
+                                            </form:select>
+											<div class="has-error">
+												<form:errors path="pasajero" class="help-inline" />
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+									<label for="">Habitaci&oacute;n</label>
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+									<div class="form-group">
+										<div class="form-line">
+											<c:choose>
+                                                    <c:when test="${not empty habitacion}">
+                                                    <form:select path="habitacion" items="${habitacion}"
+                                                        multiple="false" itemValue="idHabitacion"
+                                                        itemLabel="descripcion" class="form-control input-sm" />
+
+                                                    </c:when>
+                                                    <c:otherwise>No hay habitaciones disponibles en la fecha indicada.
+                                                    </c:otherwise>
+                                                </c:choose>
+											<div class="has-error">
+												<form:errors path="habitacion" class="help-inline" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<c:choose>
+								<c:when test="${edit}">
+						             <div class="row clearfix">
+						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
+
+						                     <input type="submit" id="EDITAR" value="EDITAR" class="btn btn-block btn-lg btn-primary waves-effect" />
+						                 </div>
+						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
+						                    <a class="btn btn-block btn-lg btn-default waves-effect" href="<c:url value='list' />">VOLVER</a>
+						                 </div>
+						             </div>
+								</c:when>
+								<c:otherwise>
+						             <div class="row clearfix">
+
+						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
+						                     <input type="submit" id="CREAR" value="CREAR" class="btn btn-block btn-lg btn-primary waves-effect" />
+						                 </div>
+						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
+						                    <a class="btn btn-block btn-lg btn-default waves-effect" href="<c:url value='list' />">VOLVER</a>
+						                 </div>
+						             </div>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for=pasajero>Pasajero</label>
-					<div class="col-md-7">
-						<form:select path="pasajero"
-							multiple="false" class="form-control input-sm" >
-							<form:option  value="" />
-    						<form:options items="${pasajero}" itemValue="idContacto"
-							itemLabel="nombreCompleto" />
-							</form:select>
-						<div class="has-error">
-							<form:errors path="pasajero" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for=habitacion>Habitacion</label>
-					<div class="col-md-7">
-						<form:select path="habitacion" items="${habitacion}"
-							multiple="false" itemValue="idHabitacion"
-							itemLabel="descripcion" class="form-control input-sm" />
-						<div class="has-error">
-							<form:errors path="habitacion" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<%
-				/* ******************************************************************************** *
-						  ********************** FIN DE LOS CAMPOS DEL FORMULATION *********************** *
-						  ******************************************************************************** */
-			%>
-
-			<div class="row">
-				<div class="form-actions floatRight">
-					<c:choose>
-						<c:when test="${edit}">
-							<input type="submit" value="Actualizar"
-								class="btn btn-primary btn-sm" /> or <a
-								id="Actualizar">Cancelar</a>
-						</c:when>
-						<c:otherwise>
-							<input type="submit" value="Guardar"
-								class="btn btn-primary btn-sm" /> or <a
-								id="Guardar">Cancelar</a>
-						</c:otherwise>
-					</c:choose>
-				</div>
-			</div>
 		</form:form>
-	</div>
-</body>
-</html>
+
+
+<%@include file="../../footer.jsp"%>
+<script src=" <c:url value= '/static/js/comprobante.js'/>"
+	type="text/javascript"></script>
+
+
+
+
