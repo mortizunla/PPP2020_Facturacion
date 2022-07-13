@@ -4,6 +4,7 @@
 
 <%
 	request.setAttribute("titulo", "Asignar Habitacion/Pasajero a Estadia");
+	request.setAttribute("idEstadia", request.getParameter("idEstadia"));
 %>
 <%@include file="../../header.jsp"%>
 
@@ -18,8 +19,8 @@
 
     	 }
 
-    	 $("#EDITAR").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
-    	 $("#CREAR").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
+    	 $("#Actualizar").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
+    	 $("#Guardar").attr("href", "<c:url value='list?idEstadia="+dato+"'/>");
 
      });
 </script>
@@ -43,6 +44,7 @@
 							<div class="row clearfix">
 								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 									<label for="">Estad&iacute;a</label>
+
 								</div>
 								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 									<div class="form-group">
@@ -121,10 +123,10 @@
 						             <div class="row clearfix">
 						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
 
-						                     <input type="submit" id="EDITAR" value="EDITAR" class="btn btn-block btn-lg btn-primary waves-effect" />
+						                     <input type="submit" id="Actualizar" href="<c:url value='list?idEstadia=${idEstadia}' />" value="EDITAR" class="btn btn-block btn-lg btn-primary waves-effect" />
 						                 </div>
 						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
-						                    <a class="btn btn-block btn-lg btn-default waves-effect" href="<c:url value='list' />">VOLVER</a>
+<a class="btn btn-block btn-lg btn-default waves-effect" href="<c:url value='list' />">VOLVER</a>
 						                 </div>
 						             </div>
 								</c:when>
@@ -132,7 +134,7 @@
 						             <div class="row clearfix">
 
 						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
-						                     <input type="submit" id="CREAR" value="CREAR" class="btn btn-block btn-lg btn-primary waves-effect" />
+                                            <input type="submit" id="Guardar" href="<c:url value='list?idEstadia=${idEstadia}' />" value="CREAR" class="btn btn-block btn-lg btn-primary waves-effect" />
 						                 </div>
 						                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-b-20">
 						                    <a class="btn btn-block btn-lg btn-default waves-effect" href="<c:url value='list' />">VOLVER</a>

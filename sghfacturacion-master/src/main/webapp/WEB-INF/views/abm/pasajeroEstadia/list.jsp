@@ -74,12 +74,12 @@ request.setAttribute("titulo", "Habitacion/Pasajero por Estadia");
 								%>
                             <td>
                             <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-                                <button type="button" onclick="javascript:location.href='<c:url value='edit-${entity.id}' />'" class="btn btn-default btn-circle waves-effect waves-circle waves-float">
+                                <button type="button" onclick="javascript:location.href='<c:url value='edit-${entity.id}?idEstadia=${entity.estadia.idEstadia}&idPE=${entity.id}' />'" class="btn btn-default btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">mode_edit</i>
                                 </button>
                             </sec:authorize>
                             <sec:authorize access="hasRole('ADMIN')">
-                                <button type="button" onclick="javascript:location.href='<c:url value='delete-${entity.id}' />'" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                <button type="button" onclick="javascript:location.href='<c:url value='delete-${entity.id}?idEstadia=${entity.estadia.idEstadia}' />'" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">delete</i>
                                 </button>
                             </sec:authorize>
