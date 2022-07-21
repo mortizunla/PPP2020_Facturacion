@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
@@ -11,13 +10,7 @@ response.setDateHeader ("Expires", 0);
 %>
 
 
-<html>
-
-<!-- EJEMPLO EN https://developers.google.com/chart/interactive/docs/gallery/timeline -->
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ocupacion del Hotel</title>
-<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+<head>
 <link href="<c:url value='/static/css/buttons.dataTables.min.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link>
 
@@ -40,22 +33,26 @@ response.setDateHeader ("Expires", 0);
 			    var rowData = [];
 			    var informacion = [];
 			    var colores = [];
+
 				<c:forEach items="${vista}" var="vista">
 
 					var fila = ["${vista.habitacion.descripcion}"];
 					var filaInf = ["${vista.habitacion.descripcion}"];
 					var filaCol = ["${vista.habitacion.descripcion}"];
+					var filaPas = ["${vista.habitacion.descripcion}"];
 
 					<c:forEach items="${vista.ocupaciones}" var="ocupaciones">
 						fila["${ocupaciones.columna}"] = "${ocupaciones.estadoEstadia}";
 						filaInf["${ocupaciones.columna}"] = "${ocupaciones.informacion}";
 						filaCol["${ocupaciones.columna}"] = "${ocupaciones.color}";
+
 					</c:forEach>
 
 
 					rowData.push(fila);
 					informacion.push(filaInf);
 					colores.push(filaCol);
+
 
 				</c:forEach>
 
@@ -65,6 +62,7 @@ response.setDateHeader ("Expires", 0);
 			    var table = $('<table/>').attr("id", "tablaOcupacion").addClass("table table-striped table-bordered").attr("cellspacing", "0").attr("width", "100%");
 
 			    var tr = $('<tr/>');
+
 			    table.append('<thead>').children('thead').append(tr);
 
 			    for (var i=0; i< data.Cols.length; i++) {
@@ -161,55 +159,70 @@ response.setDateHeader ("Expires", 0);
 </script>
 
 </head>
-<body>
-	<div class="generic-container">
-		<%@include file="authheader.jsp"%>
-		<div class="panel panel-default">
-			<!-- Default panel contents -->
-			<div class="panel-heading">
-				<span class="lead">Ocupacion del Hotel</span>
-			</div>
-		</div>
+<%@include file="header.jsp"%>
+<div class="block-header">
+	<h2>
+		OCUPACION DEL HOTEL
+	</h2>
+</div>
+<div class="row clearfix">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="card">
+            <sec:authorize access="hasAnyRole('ADMIN', 'USER','DBA')">
+                <div>
+                    <div class="header">
+                        <form id="fechas" >
+                            <div class="row">
 
-		<sec:authorize access="hasAnyRole('ADMIN', 'USER','DBA')">
-			<div>
-				<form id="fechas" >
-					<div class="row">
-						<div class="form-group col-md-12">
-							<label class="col-md-3 control-lable" for="desde">Desde</label>
-							<div class="col-md-7">
-								<input type="date" path="desde" id="desde" class=" form-control input-sm" value="${desde}"/>
-							</div>
-						</div>
-
-						<div class="form-group col-md-12">
-							<label class="col-md-3 control-lable" for="hasta">Hasta</label>
-							<div class="col-md-7">
-								<input type="date" path="hasta" id="hasta"class=" form-control input-sm" value="${hasta}"/>
-							</div>
-						</div>
-
-						<div class="form-actions floatRight">
-							<input type="submit" value="Volver a consultar" class="btn btn-primary" />
-
-						</div>
-					</div>
-				</form>
-
-			</div>
-		</sec:authorize>
-	</div>
-
-	<div class="generic-container">
-		<sec:authorize access="hasAnyRole('ADMIN', 'USER','DBA')">
-			<div>
-				<div id="tablaOcupacion-container"></div>
-			</div>
-	</sec:authorize>
-	</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+									<div class="form-group">
+										<div class="form-group col-md-12">
+                                            <label class="col-md-2 control-lable" for="desde">Desde</label>
+                                            <div class="col-md-3">
+                                                <input type="date" path="desde" id="desde" class=" form-control input-sm" value="${desde}"/>
+                                            </div>
+                                        </div>
+									</div>
+								</div>
 
 
-</body>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+									<div class="form-group">
+										<div class="form-group col-md-12">
+                                            <label class="col-md-2 control-lable" for="hasta">Hasta</label>
+                                            <div class="col-md-3">
+                                                <input type="date" path="hasta" id="hasta" class=" form-control input-sm" value="${hasta}"/>
+                                            </div>
+                                        </div>
+									</div>
+								</div>
+
+                            </div>
+                            <div class="row clearfix">
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 m-b-20">
+                                        <input type="submit" id="btnSubmit" value="Volver a consultar" class="btn btn-block btn-lg btn-primary waves-effect" />
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </sec:authorize>
+
+
+            <sec:authorize access="hasAnyRole('ADMIN', 'USER','DBA')">
+                <div class="body">
+                	<div class="table-responsive">
+                        <div>
+                            <div id="tablaOcupacion-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </sec:authorize>
+        </div>
+    </div>
+</div>
+<%@include file="footer.jsp"%>
+
 
 <script src=" <c:url value= '/static/js/jquery.dataTables.min.js'/>"
 	type="text/javascript"></script>
@@ -230,4 +243,4 @@ response.setDateHeader ("Expires", 0);
 	type="text/javascript"></script>
 <script src=" <c:url value= '/static/js/buttons.html5.min.js'/>"
 	type="text/javascript"></script>
-</html>
+
