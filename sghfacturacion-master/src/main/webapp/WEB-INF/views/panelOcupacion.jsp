@@ -98,7 +98,7 @@ response.setDateHeader ("Expires", 0);
 			                     { width: 82, targets: 0 }
 			                 ],
 			        fixedColumns:   {
-			            leftColumns: 1
+			            leftColumns: 0
 			        },
 			        responsive: true,
 			    	retrieve: true,
