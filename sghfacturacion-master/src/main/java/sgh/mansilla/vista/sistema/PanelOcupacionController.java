@@ -36,6 +36,7 @@ import sgh.mansilla.modelo.negocio.sistema.VistaOcupacion;
 
 @Controller
 @RequestMapping("/panelOcupacion")
+
 public class PanelOcupacionController {
 
 	private static final String FORMATO_CAMPO_FECHA = "yyyy-MM-dd";
