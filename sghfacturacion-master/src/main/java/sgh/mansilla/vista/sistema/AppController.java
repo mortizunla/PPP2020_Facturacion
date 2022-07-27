@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +36,7 @@ import sgh.mansilla.modelo.negocio.usuario.UserService;
 @Controller
 @RequestMapping("/")
 @SessionAttributes("roles")
-@PropertySource(value = { "classpath:application.properties" })
-
 public class AppController {
-
-	@Autowired
-	private Environment environment;
 
 	@Autowired
 	UserService userService;
