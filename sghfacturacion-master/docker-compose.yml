@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: sgh-web
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      JDBC_URL: jdbc:mysql://db:3306/sgh
+    restart: on-failure
+    links:
+      - db
+
+  db:
+    image: mysql:8.0.29
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: sgh
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+
+
