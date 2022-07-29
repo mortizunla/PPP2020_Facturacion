@@ -51,6 +51,9 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
                             <th>Precio por Noche</th>
                             <th>Check In</th>
                             <th>Check Out</th>
+							<th>Pasajeros</th>
+
+
 							<th class="noExport">Acciones</th>
 						</tr>
 					</thead>
@@ -69,6 +72,22 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
                                 <td>${entity.precioPorNoche}</td>
                                 <td>${entity.diaCheckIn}</td>
                                 <td>${entity.diaCheckOut}</td>
+
+								<td><div><c:forEach items="${pasajerosfiltrados}" var="pasajero1">
+									<c:if test="${entity.idEstadia == pasajero1.idEstadia}">
+										<c:forEach items="${pasajero1.pasajerosConEstadia}" var="pasajero2">
+											${pasajero2.nombre}
+											${pasajero2.apellido}<br>
+										</c:forEach>
+									</c:if>
+
+
+								</c:forEach></div></td>
+
+
+
+
+
 
 
 								<%
