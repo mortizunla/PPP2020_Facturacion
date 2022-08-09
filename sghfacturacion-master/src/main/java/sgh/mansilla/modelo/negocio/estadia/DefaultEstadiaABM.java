@@ -70,7 +70,7 @@ public class DefaultEstadiaABM extends ABMGenerico<Integer, Estadia> implements 
 				entidadPersistida.setDiaCheckOut(entidadActualizada.getDiaCheckOut());
 			}
 		}
-
+		entidadPersistida.setComentario(entidadActualizada.getComentario());
 
 
 		PlanAlojamiento attachedPlan = planAlojamientoABM.buscarPorId(entidadActualizada.getPlanAlojamiento().getId());

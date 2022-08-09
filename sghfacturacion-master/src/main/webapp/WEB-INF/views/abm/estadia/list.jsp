@@ -51,6 +51,7 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
                             <th>Precio por Noche</th>
                             <th>Check In</th>
                             <th>Check Out</th>
+							<th>Comentario</th>
 							<th class="noExport">Acciones</th>
 						</tr>
 					</thead>
@@ -69,6 +70,8 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
                                 <td>${entity.precioPorNoche}</td>
                                 <td>${entity.diaCheckIn}</td>
                                 <td>${entity.diaCheckOut}</td>
+								<td>${entity.comentario}</td>
+
 
 
 								<%
