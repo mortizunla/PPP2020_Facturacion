@@ -642,7 +642,8 @@ CREATE TABLE `pasajero` (
   `idTipoDocumento` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`idContacto`),
   KEY `pasajero_a_cuenta_idx` (`idCuenta`),
-  KEY `pasajero_a_tipodoc_idx` (`idTipoDocumento`)
+  KEY `pasajero_a_tipodoc_idx` (`idTipoDocumento`),
+  unique(`documento`, `idTipoDocumento`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
