@@ -51,8 +51,8 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
                             <th>Precio por Noche</th>
                             <th>Check In</th>
                             <th>Check Out</th>
-							<th>Pasajeros</th>
 							<th>Comentario</th>
+							<th>Pasajeros</th>
 
 
 							<th class="noExport">Acciones</th>
