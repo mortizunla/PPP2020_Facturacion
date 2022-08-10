@@ -1,7 +1,8 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%
 request.setAttribute("titulo", "Sistema de Gesti&oacute;n Hotelera");
 
@@ -16,10 +17,24 @@ request.setAttribute("success", request.getParameter("success"));
 </div>
 <c:choose>
 	<c:when test="${success != null}">
-		<div class="alert alert-success alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
-		    ${success}
-		</div>
+		<c:choose>
+			<c:when test = "${fn:endsWith(success, 'no pudo realizarse.')}">
+				<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+						${success}
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+						${success}
+				</div>
+
+			</c:otherwise>
+
+
+		</c:choose>
+
 	</c:when>
 </c:choose>
 

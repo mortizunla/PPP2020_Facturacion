@@ -20,6 +20,7 @@
 
 	<property column="diaCheckIn" name="diaCheckIn" type="date"/>
 	<property column="diaCheckOut" name="diaCheckOut" type="date"/>
+	<property column="comentario"  name="comentario" type="string"/>
 
 </class>
 

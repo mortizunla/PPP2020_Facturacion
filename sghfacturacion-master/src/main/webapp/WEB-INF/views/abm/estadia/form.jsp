@@ -96,6 +96,16 @@
 										</div>
 									</div>
 								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+									<div class="form-group">
+										<div class="form-line">
+											<form:input type="string"  path="comentario" id="comentario" class="form-control" placeholder="Comentario"/>
+											<div class="has-error">
+												<form:errors path="comentario" class="help-inline" />
+											</div>
+										</div>
+									</div>
+								</div>
 
 							</div>
 

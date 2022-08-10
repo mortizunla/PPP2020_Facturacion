@@ -22,8 +22,10 @@ public class Estadia implements Identificable<Integer>{
 	private Cuenta cuenta;
 	private Date diaCheckIn;
 	private Date diaCheckOut;
+    private String comentario;
 
-	@Override
+
+    @Override
 	public Integer getId() {
 		return idEstadia;
 	}
@@ -34,7 +36,7 @@ public class Estadia implements Identificable<Integer>{
 
 
 	public Estadia(Integer idEstadia, EstadoEstadia estadoEstadia, PlanAlojamiento planAlojamiento,
-			BigDecimal precioPorNoche, Date diaCheckIn, Date diaCheckOut) {
+			BigDecimal precioPorNoche, Date diaCheckIn, Date diaCheckOut, String comentario) {
 		super();
 		this.idEstadia = idEstadia;
 		this.estadoEstadia = estadoEstadia;
@@ -42,7 +44,17 @@ public class Estadia implements Identificable<Integer>{
 		this.precioPorNoche = precioPorNoche;
 		this.diaCheckIn = diaCheckIn;
 		this.diaCheckOut = diaCheckOut;
+		this.comentario = comentario;
 	}
+
+	public String getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
 
 	public Integer getIdEstadia() {
 		return idEstadia;
@@ -120,7 +132,9 @@ public class Estadia implements Identificable<Integer>{
 		if (diaCheckIn != null)
 			builder.append("diaCheckIn=").append(diaCheckIn).append(", ");
 		if (diaCheckOut != null)
-			builder.append("diaCheckOut=").append(diaCheckOut);
+			builder.append("diaCheckOut=").append(diaCheckOut).append(",");
+		if (comentario != null)
+			builder.append("comentario=").append(comentario);
 		builder.append("]");
 		return builder.toString();
 	}
