@@ -653,7 +653,7 @@ CREATE TABLE `pasajero` (
 
 LOCK TABLES `pasajero` WRITE;
 /*!40000 ALTER TABLE `pasajero` DISABLE KEYS */;
-INSERT INTO `pasajero` VALUES (1,'99999999','romina@gmail.com','Romina','Mansilla','99999999','2017-01-29 00:00:00',NULL,1),(2,'999999999','daniela@gmail.com','Daniela','Llorens','99999999','2017-01-13 00:00:00',NULL,1),(4,'999999999','fernando@gmail.com','Fernando','Mansilla','999999999','2017-01-06 00:00:00',NULL,1);
+INSERT INTO `pasajero` VALUES (1,'99999999','romina@gmail.com','Romina','Mansilla','9999999','2017-01-29 00:00:00',NULL,1),(2,'999999999','daniela@gmail.com','Daniela','Llorens','99999999','2017-01-13 00:00:00',NULL,1),(4,'999999999','fernando@gmail.com','Fernando','Mansilla','999999999','2017-01-06 00:00:00',NULL,1);
 /*!40000 ALTER TABLE `pasajero` ENABLE KEYS */;
 UNLOCK TABLES;
 

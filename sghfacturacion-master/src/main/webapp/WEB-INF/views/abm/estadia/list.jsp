@@ -79,7 +79,11 @@ request.setAttribute("titulo", "Sistema de Gestion Hotelera");
 									<c:if test="${entity.idEstadia == pasajero1.idEstadia}">
 										<c:forEach items="${pasajero1.pasajerosConEstadia}" var="pasajero2">
 											${pasajero2.nombre}
-											${pasajero2.apellido}<br>
+											${pasajero2.apellido}
+											<c:if test = "${not empty pasajero2.nombre}">
+												<br>
+											</c:if>
+
 										</c:forEach>
 									</c:if>
 
