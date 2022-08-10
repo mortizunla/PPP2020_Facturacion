@@ -143,5 +143,26 @@ public class Pasajero extends PersonaAbstracta implements Identificable<Integer>
 		return builder.toString();
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
+		Pasajero pasajero = (Pasajero) o;
+
+		if (nombre != null ? !nombre.equals(pasajero.nombre) : pasajero.nombre != null) return false;
+		if (apellido != null ? !apellido.equals(pasajero.apellido) : pasajero.apellido != null) return false;
+		if (tipoDocumento != null ? !tipoDocumento.equals(pasajero.tipoDocumento) : pasajero.tipoDocumento != null)
+			return false;
+		return documento != null ? documento.equals(pasajero.documento) : pasajero.documento == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = nombre != null ? nombre.hashCode() : 0;
+		result = 31 * result + (apellido != null ? apellido.hashCode() : 0);
+		result = 31 * result + (tipoDocumento != null ? tipoDocumento.hashCode() : 0);
+		result = 31 * result + (documento != null ? documento.hashCode() : 0);
+		return result;
+	}
 }
